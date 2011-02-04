@@ -9,4 +9,5 @@ group(:development) do
   gem 'timecop',        '~> 0.3.5'
   gem 'i18n',           '0.5.0'
   gem 'activesupport',  '~> 3', :require => 'active_support'
+  gem 'simple_uuid'
 end

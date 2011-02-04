@@ -13,6 +13,12 @@ describe "Memcached adapter" do
 
   it_should_behave_like 'a marshaled adapter'
 
+  it "should write object with UUID key" do
+    id = SimpleUUID::UUID.new.to_guid
+    adapter.write(id, {:foo => :bar})
+    adapter.read(id).should == {:foo => :bar}
+  end
+
   describe "#lock" do
     let(:lock_key)    { :add_game }
     let(:lock_value)  { 'locked' }
